@@ -72,7 +72,7 @@ The dataset contains two folders for training and testing:
 ## Model Architecture
 
 The model is based on a simple Convolutional Neural Network (CNN) with two convolutional layers followed by pooling and dropout layers to prevent overfitting. The architecture is as follows:
-```
+```python
 
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(32, kernel_size=(5, 5), activation='relu'),
@@ -90,8 +90,7 @@ model = tf.keras.models.Sequential([
 ### Training
 The model is trained using the Adam optimizer with sparse categorical cross-entropy loss. The training process includes 5 epochs, with performance being evaluated based on accuracy and loss.
 
-```
-
+```python
 model.compile(
     optimizer='adam',
     loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
@@ -104,8 +103,7 @@ model.fit(train_ds, epochs=5)
 ```
 
 ### Evaluation
-```
-
+```python
 # Evaluate model on the test dataset
 test_loss, test_accuracy = model.evaluate(test_ds)
 print(f"Test Accuracy: {test_accuracy:.2f}")
